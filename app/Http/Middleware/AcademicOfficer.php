@@ -20,29 +20,11 @@ class AcademicOfficer
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role == 'User') {
-            return redirect()->route('dashboard');
-        }
-
-        if (Auth::user()->role == 'Admin') {
-            return redirect()->route('admin');
-        }
-
-        if (Auth::user()->role == 'IT') {
-            return redirect()->route('it');
-        }
-
-        if (Auth::user()->role == 'Bursar') {
-            return redirect()->route('bursary');
-        }
         if (Auth::user()->role == 'AcademicOfficer') {
             return $next($request);
         }
-        if (Auth::user()->role == 'Student') {
-            return redirect()->route('student');
-        }
-        if (Auth::user()->role == 'Teacher') {
-            return redirect()->route('teacher');
-        }
+
+        return redirect()->back();
+        
     }
 }

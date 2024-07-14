@@ -19,33 +19,10 @@ class IT
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        if(Auth::user()->role == 'User'){
-            return redirect()->route('user');
-        }
-
-        if (Auth::user()->role == 'Admin') {
-            return redirect()->route('admin');
-        }
 
         if (Auth::user()->role == 'IT'){
             return $next($request);
         }
 
-        if (Auth::user()->role == 'Bursar') {
-            return redirect()->route('bursar');
-        }
-
-        if (Auth::user()->role == 'AcademicOfficer') {
-            return redirect()->route('academicOfficer');
-
-        }
-
-        if (Auth::user()->role == 'Student') {
-            return redirect()->route('student');
-        }
-
-        if (Auth::user()->role == 'Teacher') {
-            return redirect()->route('teacher');
-        }
     }
 }

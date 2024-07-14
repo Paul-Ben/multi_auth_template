@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Middleware\AcademicOfficer;
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\Bursar;
+use App\Http\Middleware\IT;
+use App\Http\Middleware\Student;
+use App\Http\Middleware\Teacher;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -13,12 +19,12 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
         $middleware->alias([
-            'admin' => \App\Http\Middleware\Admin::class,
-            'academicOfficer' => \App\Http\Middleware\AcademicOfficer::class,
-            'bursar' => \App\Http\Middleware\Bursar::class,
-            'it' => \App\Http\Middleware\IT::class,
-            'student' => \App\Http\Middleware\Student::class,
-            'teacher' => \App\Http\Middleware\Teacher::class,
+            'admin' => Admin::class,
+            'academicOfficer' => AcademicOfficer::class,
+            'bursar' => Bursar::class,
+            'it' => IT::class,
+            'student' => Student::class,
+            'teacher' => Teacher::class,
 
         ]);
     })
