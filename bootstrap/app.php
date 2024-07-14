@@ -12,6 +12,15 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
+        $middleware->alias([
+            'admin' => \App\Http\Middleware\Admin::class,
+            'academicOfficer' => \App\Http\Middleware\AcademicOfficer::class,
+            'bursar' => \App\Http\Middleware\Bursar::class,
+            'it' => \App\Http\Middleware\IT::class,
+            'student' => \App\Http\Middleware\Student::class,
+            'teacher' => \App\Http\Middleware\Teacher::class,
+
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
