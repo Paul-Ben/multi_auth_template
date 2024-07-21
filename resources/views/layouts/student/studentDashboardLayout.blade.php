@@ -53,7 +53,7 @@
                                     href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     this.closest('form').submit();">Logout</a>
-                                                    </form>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -65,29 +65,90 @@
         <aside id="sidebar" class="sidebar bg-blue-800 text-white w-64 min-h-screen p-4 fixed md:relative z-40">
             <nav>
                 <ul class="space-y-2">
-                    <li><a href="{{ route('student.dashboard') }}"
-                            class="@if (request()->routeIs('student.dashboard')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Dashboard</a>
+                    <li>
+                        <a href="{{ route('student.dashboard') }}"
+                            class="@if (request()->routeIs('student.dashboard')) bg-blue-700 @endif py-2 px-4 rounded hover:bg-blue-700 flex items-center">
+                            <svg class="w-4 h-4 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 7h.01m3.486 1.513h.01m-6.978 0h.01M6.99 12H7m9 4h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 3.043 12.89 9.1 9.1 0 0 0 8.2 20.1a8.62 8.62 0 0 0 3.769.9 2.013 2.013 0 0 0 2.03-2v-.857A2.036 2.036 0 0 1 16 16Z" />
+                            </svg>
+                            Dashboard
+                        </a>
+
                     </li>
                     <hr>
                     <li><a href="{{ route('student.biodata') }}"
-                            class="@if (request()->routeIs('student.biodata')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Bio
-                            Data</a></li>
+                            class="@if (request()->routeIs('student.biodata')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-width="2"
+                                    d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+
+                            Bio Data</a></li>
                     <li><a href="{{ route('student.fee') }}"
-                            class="@if (request()->routeIs('student.fee')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Fees</a>
+                            class="@if (request()->routeIs('student.fee')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                    d="M8 7V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1M3 18v-7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                            </svg>
+                            Fees</a>
                     </li>
                     <li><a href="{{ route('student.otherpayments') }}"
-                            class="@if (request()->routeIs('student.otherpayments')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Other
+                            class="@if (request()->routeIs('student.otherpayments')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17 8H5m12 0a1 1 0 0 1 1 1v2.6M17 8l-4-4M5 8a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.6M5 8l4-4 4 4m6 4h-4a2 2 0 1 0 0 4h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1Z" />
+                            </svg>
+
+                            Other
                             Payments</a>
                     </li>
                     <li><a href="{{ route('student.courseregistration') }}"
-                            class="@if (request()->routeIs('student.courseregistration')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Course
+                            class="@if (request()->routeIs('student.courseregistration')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m11.5 11.5 2.071 1.994M4 10h5m11 0h-1.5M12 7V4M7 7V4m10 3V4m-7 13H8v-2l5.227-5.292a1.46 1.46 0 0 1 2.065 2.065L10 17Zm-5 3h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
+                            </svg>
+
+                            Course
                             Registration</a></li>
                     <li><a href="{{ route('student.result') }}"
-                            class="@if (request()->routeIs('student.result')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Results</a>
+                            class="@if (request()->routeIs('student.result')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10 3v4a1 1 0 0 1-1 1H5m4 6 2 2 4-4m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z" />
+                            </svg>
+
+                            Results</a>
                     </li>
                     <li class="menu-item">
                         <a href="#"
-                            class="@if (request()->routeIs('student.accomodation', 'student.accommodationapplication')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">Accommodation</a>
+                            class="@if (request()->routeIs('student.accomodation', 'student.accommodationapplication')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5" />
+                            </svg>
+
+                            Accommodation</a>
                         <ul class="sub-menu">
                             <li><a href="{{ route('student.accommodation') }}"
                                     class="@if (request()->routeIs('student.accommodation')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-600">View
@@ -98,17 +159,30 @@
                         </ul>
                     </li>
                     <li><a href="{{ route('student.documents') }}"
-                            class="@if (request()->routeIs('student.documents')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-700">My
-                            Documents</a></li>
+                            class="@if (request()->routeIs('student.documents')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5m14 9.006h-.335a1.647 1.647 0 0 1-1.647-1.647v-1.706a1.647 1.647 0 0 1 1.647-1.647L19 12M5 12v5h1.375A1.626 1.626 0 0 0 8 15.375v-1.75A1.626 1.626 0 0 0 6.375 12H5Zm9 1.5v2a1.5 1.5 0 0 1-1.5 1.5v0a1.5 1.5 0 0 1-1.5-1.5v-2a1.5 1.5 0 0 1 1.5-1.5v0a1.5 1.5 0 0 1 1.5 1.5Z" />
+                            </svg>
+
+                            MyDocuments</a></li>
                     <hr>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a href="{{ route('logout') }}" class="block py-2 px-4 rounded hover:bg-blue-700"
+                            <a href="{{ route('logout') }}"
+                                class="flex items-center py-2 px-4 rounded hover:bg-blue-700"
                                 onclick="event.preventDefault();
                                                     this.closest('form').submit();">
+                                                    <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"/>
+                                                      </svg>
+                                                      
                                 Logout</a>
-                                </form>
+                        </form>
                     </li>
                 </ul>
             </nav>
