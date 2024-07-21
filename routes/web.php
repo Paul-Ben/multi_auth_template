@@ -29,6 +29,15 @@ Route::middleware(['auth', 'admin'])->group(function (){
 // Student Routes
 Route::middleware(['auth', 'student'])->group(function (){
     Route::get('/student/dashboard', [StudentDashboardController::class, 'index'])->name('student.dashboard');
+    Route::get('/student/fees', [StudentDashboardController::class, 'fee'])->name('student.fee');
+    Route::get('/student/bio-data', [StudentDashboardController::class, 'biodataindex'])->name('student.biodata');
+    Route::get('/student/other-payments', [StudentDashboardController::class, 'otherpaymentsindex'])->name('student.otherpayments');
+    Route::get('/student/course-registration', [StudentDashboardController::class, 'courseregistrationindex'])->name('student.courseregistration');
+    Route::get('/student/results', [StudentDashboardController::class, 'resultindex'])->name('student.result');
+    Route::get('/student/accommodation', [StudentDashboardController::class, 'accommodationindex'])->name('student.accommodation');
+    Route::get('/student/accommodation-apply', [StudentDashboardController::class, 'accommodationapplication'])->name('student.accommodationapplication');
+    Route::get('/student/documents', [StudentDashboardController::class, 'documentsindex'])->name('student.documents');
+
 });
 
 // IT Routes
