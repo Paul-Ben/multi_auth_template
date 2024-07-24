@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\UserManagerController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\It\ItDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentDashboardController;
@@ -9,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::resource('application', ApplicationController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,6 +28,9 @@ Route::middleware('auth')->group(function () {
 // Admin routes
 Route::middleware(['auth', 'admin'])->group(function (){
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('admin/manage-user', [UserManagerController::class, 'index'])->name('admin.manageuser');
+    
+
 });
 
 // Student Routes

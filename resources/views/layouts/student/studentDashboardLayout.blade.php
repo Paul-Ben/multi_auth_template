@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('csstyles/studentdashboardstyle.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -41,7 +42,7 @@
                         </svg>
                     </button>
                     <ul
-                        class="dropdown-menu absolute hidden text-gray-700 pt-1 bg-white rounded-md shadow-xl right-0 mt-2">
+                        id="userMenu" class="dropdown-menu absolute hidden text-gray-700 pt-1 bg-white rounded-md shadow-xl right-0 mt-2">
                         <li><a class="rounded-t hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
                                 href="/profile">Profile</a></li>
                         <li><a class="hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
@@ -60,7 +61,6 @@
             </div>
         </div>
     </nav>
-
     <div class="flex">
         <aside id="sidebar" class="sidebar bg-blue-800 text-white w-64 min-h-screen p-4 fixed md:relative z-40">
             <nav>
@@ -233,6 +233,7 @@
         // Biodata page generate date of printing
         document.getElementById('generated-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     </script> --}}
+   
 </body>
 
 </html>
