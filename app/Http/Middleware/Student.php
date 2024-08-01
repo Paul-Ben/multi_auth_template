@@ -19,8 +19,8 @@ class Student
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        
-        if (Auth::user()->role == 'Student') {
+
+        if (Auth::user()->roleId == 2) {
             return $next($request);
         }
         return redirect()->back();

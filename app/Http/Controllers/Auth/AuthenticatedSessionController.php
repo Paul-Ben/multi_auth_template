@@ -28,14 +28,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $route = match (auth()->user()->role) {
+        $route = match (auth()->user()->roleId) {
             'Staff' => 'staff.dashboard',
-            'Admin' => 'admin.dashboard',
-            'Student' => 'student.dashboard',
-            'IT' => 'it.dashboard',
-            'AcademicOfficer' => 'academicOffice.dashboard',
-            'Teacher' => 'teacher.dashboard',
-            'Bursar' => 'bursar.dashboard',
+            1 => 'admin.dashboard',
+            2 => 'student.dashboard',
+            3 => 'it.dashboard',
+            4 => 'academicOffice.dashboard',
+            5 => 'teacher.dashboard',
+            6 => 'bursar.dashboard',
             
             default => 'dashboard',
         };

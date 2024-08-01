@@ -12,7 +12,9 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Admin - View Applications';
+        $applications = Application::paginate(20);
+        return view('application.index', compact('applications', 'title'));
     }
 
     /**
@@ -68,9 +70,12 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Application $application)
+    public function show(Request $request, Application $application)
     {
-        //
+        // $title = 'Admin - View Application';
+        // $application = Application::find($request->id);
+        // dd($application);
+        // return view('application.show', ['application' => $application, 'title' => $title]);
     }
 
     /**

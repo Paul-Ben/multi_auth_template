@@ -4,18 +4,18 @@
 
     <section class="bg-blue-800 text-white py-20 relative">
         <div class="absolute inset-0 z-0">
-            <img alt="Abstract digital landscape with glowing nodes and connections, representing a virtual reality environment" src="hero-background.jpg" class="w-full h-full object-cover opacity-30" width="1920" height="1080">
+            <img alt="Abstract digital landscape with glowing nodes and connections, representing a virtual reality environment" src="{{asset('images/alevel/1721724680_iphone 132.jpeg')}}" class="w-full h-full object-cover opacity-30" width="1920" height="1080">
         </div>
         <div class="container mx-auto px-6 text-center relative z-10">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Shape the Future of Digital Reality</h1>
-            <p class="text-xl mb-8">Join WebSim Institute and explore the frontiers of simulated experiences</p>
+            <p class="text-xl mb-8">Join COE Institute and explore the frontiers of simulated experiences</p>
             <a href="{{route('application.create')}}" class="bg-white text-blue-800 py-2 px-6 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300">Apply Now</a>
         </div>
     </section>
 
     <section class="py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8">Why Choose WebSim Institute?</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">Why Choose COE Institute?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <img alt="Students using VR headsets in a high-tech classroom" src="cutting-edge-curriculum.jpg" class="w-full h-48 object-cover mb-4 rounded" width="400" height="300">

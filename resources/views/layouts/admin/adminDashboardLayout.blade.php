@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-gray-100 font-sans">
-    <nav class="top-nav bg-blue-900 text-white p-4">
+    <nav class="top-nav bg-blue-800 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center">
                 <button id="sidebarToggle" class="mr-4 md:hidden">
@@ -24,7 +24,7 @@
                 </button>
                 <a href="/" class="text-2xl font-bold flex items-center">
                     <img alt="WebSim Institute logo, a stylized 'W' made of interconnected nodes"
-                        src="{{ asset('headshot/logo.png') }}" width="60" height="60" class="mr-2">
+                        src="{{ asset('headshot/Aboh Logo.png') }}" width="60" height="60" class="mr-2">
                     COE O
                 </a>
             </div>
@@ -227,7 +227,7 @@
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                        <a href="#" class="@if (request()->routeIs('admin.application', 'admin.application-view', 'admin.edit-application')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -237,8 +237,8 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="#"
-                                    class="@if (request()->routeIs('admin.manageApplication')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-600">
+                                <a href="{{route('admin.application')}}"
+                                    class="@if (request()->routeIs('admin.application')) bg-blue-700 @endif block py-2 px-4 rounded hover:bg-blue-600">
                                     Manage Application
                                 </a>
                             </li>
@@ -256,8 +256,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="@if (request()->routeIs('admin.facultyManagement')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                        <a href="{{route('faculty.index')}}"
+                            class="@if (request()->routeIs('faculty.index', 'faculty.create', 'faculty.edit', 'faculty.show')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
@@ -267,8 +267,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="@if (request()->routeIs('admin.departmentManagement')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                        <a href="{{route('department.index')}}"
+                            class="@if (request()->routeIs('department.index', 'department.create', 'department.edit', 'department.show')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -278,8 +278,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="@if (request()->routeIs('admin.courseManagement')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                        <a href="{{route('course.index')}}"
+                            class="@if (request()->routeIs('course.index', 'viewDepartmentCourses', 'course.create', 'course.edit', 'course.show')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -24,7 +24,7 @@
                 </button>
                 <a href="/" class="text-2xl font-bold flex items-center">
                     <img alt="WebSim Institute logo, a stylized 'W' made of interconnected nodes"
-                        src="{{ asset('headshot/logo.png') }}" width="60" height="60" class="mr-2">
+                        src="{{ asset('headshot/Aboh Logo.png') }}" width="60" height="60" class="mr-2">
                     COE O
                 </a>
             </div>
@@ -195,7 +195,7 @@
 
     <footer class="bg-blue-900 text-white py-4 mt-8">
         <div class="container mx-auto text-center">
-            <p>&copy; 2023 Institute. All rights reserved.</p>
+            <p>&copy; 2023 COE Institute. All rights reserved.</p>
             <p class="mt-2">
                 <a href="/privacy-policy" class="hover:underline">Privacy Policy</a> |
                 <a href="/terms-of-service" class="hover:underline">Terms of Service</a> |

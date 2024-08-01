@@ -3,25 +3,31 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminDashboardController extends Controller
+class UserManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $title = 'Admin Dashboard';
-        return view('admin.dashboard', ['title' => $title]);
+        // $title = 'Admin Dashboard - User Manager';
+        
+        // $users = User::paginate(10);
+        // // dd($users);
+        // return view('admin.userManage', ['users' => $users, 'title' => $title]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        // $title = "Admin Dashboard - Add User";
+        // return view('admin.addUser', ['title' => $title]);
     }
 
     /**

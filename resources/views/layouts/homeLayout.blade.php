@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSim Institute - Shaping Digital Realities</title>
+    <title>Institute - Shaping Digital Realities</title>
     {{-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/scripts.js'])
 </head>
@@ -45,7 +45,7 @@
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             
             <a href="/" class="text-2xl font-bold flex items-center">
-                <img alt="WebSim Institute logo, a stylized 'W' made of interconnected nodes" src="{{asset('headshot/logo.png')}}" width="60" height="60" class="mr-2 rounded-full">
+                <img alt="WebSim Institute logo, a stylized 'W' made of interconnected nodes" src="{{asset('headshot/Aboh Logo.png')}}" width="60" height="60" class="mr-2 rounded-full">
                 COE Institute
             </a>
             <div class="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4">
@@ -81,7 +81,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between">
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
-                    <h3 class="text-xl font-semibold mb-2">WebSim Institute</h3>
+                    <h3 class="text-xl font-semibold mb-2">COE Institute</h3>
                     <p>Shaping the future of digital reality</p>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center">
-                <p>&copy; 2023 WebSim Institute. All rights reserved.</p>
+                <p>&copy; 2023 COE Institute. All rights reserved.</p>
             </div>
         </div>
     </footer>
