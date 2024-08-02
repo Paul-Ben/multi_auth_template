@@ -36,6 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     // User managment routes
     Route::get('admin/manage-user', [ManageUsersController::class, 'index'])->name('admin.manageuser');
+    Route::get('admin/searchuser', [ManageUsersController::class, 'searchuser'])->name('admin.searchuser');
     // Get the add user form
     Route::get('/admin/manage-user/create', [ManageUsersController::class, 'create'])->name('admin.createuser');
     // Post the add user form

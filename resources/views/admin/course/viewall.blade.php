@@ -47,9 +47,9 @@
                          <tr class="{{ $index % 2 == 0 ? 'bg-gray-100' : '' }}">
                             <td class="p-2">{{ $course->courseCode }}</td>
                             <td class="p-2">{{ $course->courseTitle}} <br> {{$course->courseDescription}}</td>
-                            <td class="p-2">{{ $course->courseCategory }}</td>
+                            <td class="p-2">{{ Str::upper($course->courseCategory) }}</td>
                             <td class="p-2">{{ $course->courseCreditUnit }}</td>
-                            <td class="p-2">{{ $course->semester }}</td>
+                            <td class="p-2">{{ Str::upper($course->semester) }}</td>
                             <td class="p-2">
                                 <div class="flex space-x-2">
                                     <a href="{{ route('course.show', $course) }}">

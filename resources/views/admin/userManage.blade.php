@@ -40,10 +40,34 @@
         <div class="bg-white p-6 rounded-lg shadow-md mb-8">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-semibold">User Record</h2>
+                <form action="{{ route('admin.searchuser') }}" class="max-w-md mx-auto">
+                    <label for="default-search"
+                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                        </div>
+                        <input type="search" id="default-search" name="query"
+                            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Search..." required />
+                        <button type="submit"
+                            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                    </div>
+                </form>
                 <div>
-                    <a href="{{ route('admin.createuser')}}"
+                    <a href="{{ route('admin.createuser') }}"
                         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Add
                         User</a>
+                    @if (isset($query) && $query != '')
+                        <a href="{{ route('admin.manageuser') }}"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Clear
+                        </a>
+                    @endif
+
                 </div>
 
             </div>
@@ -59,48 +83,99 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $index => $user)
-                            <tr class="{{ $index % 2 == 0 ? 'bg-gray-100' : '' }}">
-                                <td class="p-2">{{ $user->name }}</td>
-                                <td class="p-2">{{ $user->email }}</td>
-                                <td class="p-2" hidden>{{ $user->roleId }}</td>
-                                @if ($user->roleId == 1)
-                                    <td class="p-2">Admin</td>
-                                @endif
-                                @if ($user->roleId == 2)
-                                    <td class="p-2">Student</td>
-                                @endif
+                        @if (isset($query) && $query != '')
+                            @if ($users->count() > 0)
+                                @foreach ($users as $index => $user)
+                                    <tr class="{{ $index % 2 == 0 ? 'bg-gray-100' : '' }}">
+                                        <td class="p-2">{{ $user->name }}</td>
+                                        <td class="p-2">{{ $user->email }}</td>
+                                        <td class="p-2" hidden>{{ $user->roleId }}</td>
+                                        @if ($user->roleId == 1)
+                                            <td class="p-2">Admin</td>
+                                        @endif
+                                        @if ($user->roleId == 2)
+                                            <td class="p-2">Student</td>
+                                        @endif
 
-                                <td class="p-2">
-                                    <div class="flex space-x-2">
-                                        <a href="{{ route('admin.edit.user', $user) }}">
-                                            <span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                                Edit
-                                            </span>
-                                        </a>
-
-                                        <a href="{{ route('admin.edit.user', $user) }}">
-                                            <span
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-                                                Reset Password
-                                            </span>
-                                        </a>
-
-                                        <form action="{{ route('admin.delete.user', $user) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-blue-200">
-                                                Delete
-                                                </span>
+                                        <td class="p-2">
+                                            <div class="flex space-x-2">
+                                                <a href="{{ route('admin.edit.user', $user) }}">
+                                                    <span
+                                                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                                        Edit
+                                                    </span>
                                                 </a>
-                                        </form>
 
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
+                                                <a href="{{ route('admin.edit.user', $user) }}">
+                                                    <span
+                                                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                                        Reset Password
+                                                    </span>
+                                                </a>
+
+                                                <form action="{{ route('admin.delete.user', $user) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-blue-200">
+                                                        Delete
+                                                        </span>
+                                                        </a>
+                                                </form>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5" class="text-center">No users found</td>
+                                </tr>
+                            @endif
+                        @else
+                            @foreach ($users as $index => $user)
+                                <tr class="{{ $index % 2 == 0 ? 'bg-gray-100' : '' }}">
+                                    <td class="p-2">{{ $user->name }}</td>
+                                    <td class="p-2">{{ $user->email }}</td>
+                                    <td class="p-2" hidden>{{ $user->roleId }}</td>
+                                    @if ($user->roleId == 1)
+                                        <td class="p-2">Admin</td>
+                                    @endif
+                                    @if ($user->roleId == 2)
+                                        <td class="p-2">Student</td>
+                                    @endif
+
+                                    <td class="p-2">
+                                        <div class="flex space-x-2">
+                                            <a href="{{ route('admin.edit.user', $user) }}">
+                                                <span
+                                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                                    Edit
+                                                </span>
+                                            </a>
+
+                                            <a href="{{ route('admin.edit.user', $user) }}">
+                                                <span
+                                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                                    Reset Password
+                                                </span>
+                                            </a>
+
+                                            <form action="{{ route('admin.delete.user', $user) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-blue-200">
+                                                    Delete
+                                                    </span>
+                                                    </a>
+                                            </form>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
                 <div class="mt-4 p-4 text-white">

@@ -58,7 +58,7 @@
                             <option value="{{ $studysession->status }}">
                                 @if ($studysession->status === 1)
                                     Active
-                                @else
+                                @elseif ($studysession->status === 0)
                                     Inactive
                                 @endif
                             </option>

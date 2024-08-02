@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\StudySession;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -68,5 +69,22 @@ class ManageUsersController extends Controller
     {
         $user->delete();
         return redirect()->route('admin.manageuser')->with('success', 'User deleted!');
+    }
+
+    public function searchuser(Request $request)
+    {
+        $title = 'Admin - User Search';
+        $query = $request->input('query');
+        if ($query) {
+            // Fetch study sessions matching the search query
+            $users = User::where('name', 'like', '%' . $query . '%')
+            ->paginate(20);
+        } else {
+            // Fetch all study sessions if no search query
+            $users = User::paginate(20);
+        }
+
+        // Return the search results to the view
+        return view('admin.userManage', compact('title', 'users', 'query'));
     }
 }

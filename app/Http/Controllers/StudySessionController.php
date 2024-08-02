@@ -14,6 +14,7 @@ class StudySessionController extends Controller
     {
         $title = 'Admin - Session';
         $studysessions = StudySession::orderBy('id', 'Desc')->paginate(10);
+        // dd($studysessions);
         return view('admin.studysession.index', compact('studysessions', 'title'));
     }
 
@@ -31,14 +32,22 @@ class StudySessionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|unique:study_sessions,name',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'status' => 'required',
-            ]);
-            StudySession::create($request->all());
-            return redirect()->route('studysession.index')->with('success', 'Session created');
+            'status' => 'required|boolean',
+        ]);
+        if ($validated['status']) {
+            $otherActiveSession = StudySession::where('status', true)->first();
+
+            if ($otherActiveSession) {
+                // Update the other active session to inactive
+                $otherActiveSession->update(['status' => false]);
+            }
+        }
+        StudySession::create($request->all());
+        return redirect()->route('studysession.index')->with('success', 'Session created');
     }
 
     /**
@@ -61,17 +70,26 @@ class StudySessionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, StudySession $studySession)
+    public function update(Request $request, StudySession $studysession)
     {
         $validated = $request->validate([
             'name' => 'required',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'status' => 'required',
-            ]);
-            $studySession->update($validated);
-            return redirect()->route('studysession.index')->with('success', 'Session updated');
+            'status' => 'required|boolean',
+        ]);
+        if ($validated['status']) {
+            $otherActiveSession = StudySession::where('status', true)
+                ->where('id', '!=', $studysession->id)
+                ->first();
 
+            if ($otherActiveSession) {
+                // Update the other active session to inactive
+                $otherActiveSession->update(['status' => false]);
+            }
+        }
+        $studysession->update($validated);
+        return redirect()->route('studysession.index')->with('success', 'Session updated');
     }
 
     /**
@@ -80,6 +98,6 @@ class StudySessionController extends Controller
     public function destroy(StudySession $studysession)
     {
         $studysession->delete();
-        return redirect()->route('studysession.index')->with('success', 'Session'.$studysession->name.' deleted');
+        return redirect()->route('studysession.index')->with('success', 'Session' . $studysession->name . ' deleted');
     }
 }
