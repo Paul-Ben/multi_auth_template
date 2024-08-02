@@ -305,6 +305,19 @@
                             Course Management
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('studysession.index') }}"
+                            class="@if (request()->routeIs('studysession.index', 'studysession.create', 'studysession.edit', 'studysession.show')) bg-blue-700 @endif flex items-center py-2 px-4 rounded hover:bg-blue-700">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white mr-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 9v3m0 0v3m0-3h3m-3 0h-3m6-5V5a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2M6 19h12a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Z" />
+                            </svg>
+                            Session Management
+                        </a>
+                    </li>
                     <hr>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">

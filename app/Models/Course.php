@@ -16,13 +16,14 @@ class Course extends Model
         'courseCategory',
         'courseCreditUnit',
         'department_id',
+        'faculty_id',
         'courseLecturer',
         'coursePrerequisites',
         'semester'
 
     ];
 
-    public function deparmtnt()
+    public function department()
     {
         return $this->belongsTo(Department::class);
     }

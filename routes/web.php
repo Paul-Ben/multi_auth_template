@@ -10,6 +10,7 @@ use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\It\ItDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentDashboardController;
+use App\Http\Controllers\StudySessionController;
 use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/get-department-courses', [CourseController::class, 'viewDepartmentCourses'])->name('viewDepartmentCourses');
     Route::get('/departments', [DepartmentController::class, 'getDepartments'])->name('getDepartments');
     Route::get('admin/view-all-courses', [CourseController::class, 'viewAllCourses'])->name('viewall');
+    // StudySession Management routes
+    Route::resource('studysession', StudySessionController::class);
 });
 
 // Student Routes
