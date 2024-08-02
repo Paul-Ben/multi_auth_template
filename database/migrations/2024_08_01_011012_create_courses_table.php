@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('courseCategory', ['coreCourse', 'elective','carryOver']);
             $table->integer('courseCreditUnit');
             $table->foreignId('department_id')->constrained('departments');
+            $table->foreignId('faculty_id')->constrained('faculties');
             $table->string('courseLecturer')->nullable();
             $table->string('coursePrerequisites')->nullable();
             $table->string('semester');

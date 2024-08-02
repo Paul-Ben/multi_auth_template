@@ -1,7 +1,7 @@
 @extends('layouts.admin.adminDashboardLayout')
 @section('content')
     <div>
-        <h1 class="text-3xl font-bold mb-8">Application Management</h1>
+        <h1 class="text-3xl font-bold mb-8">Course Management</h1>
         @if (Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -9,7 +9,7 @@
         @endif
         <div class="bg-white p-6 rounded-lg shadow-md mb-8">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-semibold">Application Records</h2>
+                <h2 class="text-2xl font-semibold">Course Records</h2>
                 <div>
                     <a href="{{ route('course.create')}}"
                         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">Add
